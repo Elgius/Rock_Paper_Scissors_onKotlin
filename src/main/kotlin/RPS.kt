@@ -93,3 +93,5 @@ fun main(){
     }
     score()
 }
+
+//Error in the Score displaying

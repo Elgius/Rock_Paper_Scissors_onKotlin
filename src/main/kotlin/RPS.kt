@@ -1,15 +1,12 @@
-
-var tie:Int = 0
-var user:Int = 0
-var computer:Int = 0
-
 fun gameLogic(){
 
     println("Please enter the letter of choice: ")
     val userInput: String = readln()
     val option: String = userInput.uppercase()
-
+    println("Your choice: $userInput")
     val cplayerChoice = arrayOf("R","S","P").random()
+    println("Computer picked: $cplayerChoice")
+    println("This is your choice: $option and this is the Computers choice: $cplayerChoice")
 
 
     when (option){
@@ -19,69 +16,49 @@ fun gameLogic(){
     }
 }
 
-/*fun score(tie:Int, user:Int, computer:Int): String {
-
-    var scoreSheet = "Ties = $tie , Wins = $user , losses = $computer"
-
-    return scoreSheet
-}*/
 
 
 
-//TODO fix this results thing
+fun results(data: String, choice: String){
 
-fun results(data: String, choice: String): String {
+    var tie:Int = 0
+    var user:Int = 0
+    var computer:Int = 0
 
-    if (data == choice){
-        println("You have a tie now oof")
+    var final: String = ""
 
-        tie += 1
+    //while (i = rounds)
+
+    if (data == "R"){
+        if(choice == "P"){
+            final = "Computer wins"
+            losses += 1
+        }
+        else {final = "You won"
+            wins += 1 }
     }
 
-    var final:String
-
-    if ((data == "P" && choice == "S")){
-        final = "Computer won"
-        computer += 1
+    else if(data == "P"){
+        if(choice == "S"){
+            final = "Computer wins"
+            losses += 1
+        }
+        else { final = "You won"
+            wins += 1 }
     }
 
-    else{
-        final = "You won"
-        user +=1
+    else if(data == "S"){
+        if(choice == "R"){
+            final = "Computer wins"
+            losses += 1
+        }
+        else { final = "You won"
+            wins += 1 }
     }
 
-    if ((data == "S" && choice == "R")){
-        final = "Computer won"
-        computer += 1
-
-    }
-
-    else{
-
-        final = "You won"
-        user += 1
-
-    }
-
-    if ((data == "R" && choice == "P")){
-
-        final = "Computer won"
-        computer += 1
-
-    }
-
-    else{
-
-        final = "You won"
-        user += 1
-
-    }
-
-    //score(tie,user,computer)
-    return final
+    println(final)
+    println("wins: $wins , ties:  $ties, loss:  $losses")
 }
-
-
 
 fun main(){
     println("Welcome to the game my dudessss")
@@ -93,5 +70,5 @@ fun main(){
     for(i in 1..rounds){
         gameLogic()
     }
-    print("Wins = $user   ties = $tie    loses = $computer" )
+
 }

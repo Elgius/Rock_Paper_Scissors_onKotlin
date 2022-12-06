@@ -1,3 +1,8 @@
+
+var tie:Int = 0
+var user:Int = 0
+var computer:Int = 0
+
 fun gameLogic(){
 
     println("Please enter the letter of choice: ")
@@ -14,25 +19,21 @@ fun gameLogic(){
     }
 }
 
-fun score(tie:Int,User:Int,Computer:Int){
+/*fun score(tie:Int, user:Int, computer:Int): String {
 
-    var ScoreSheet = "Ties = $tie , Wins = $User , losses = $Computer"
+    var scoreSheet = "Ties = $tie , Wins = $user , losses = $computer"
 
-    return println(ScoreSheet)
-}
-
-
+    return scoreSheet
+}*/
 
 
+
+//TODO fix this results thing
 
 fun results(data: String, choice: String): String {
 
-    var tie:Int = 0
-    var user:Int = 0
-    var computer:Int = 0
-
     if (data == choice){
-        print("You have a tie now oof")
+        println("You have a tie now oof")
 
         tie += 1
     }
@@ -76,22 +77,21 @@ fun results(data: String, choice: String): String {
 
     }
 
-    score(tie,user,computer)
+    //score(tie,user,computer)
     return final
 }
+
 
 
 fun main(){
     println("Welcome to the game my dudessss")
 
     println("How many rounds do you want to play?")
-    var round:String = readln()
-    var rounds = round.toInt()
+    val round:String = readln()
+    val rounds = round.toInt()
 
     for(i in 1..rounds){
         gameLogic()
     }
-    score()
+    print("Wins = $user   ties = $tie    loses = $computer" )
 }
-
-//Error in the Score displaying
